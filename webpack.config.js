@@ -25,7 +25,7 @@ module.exports = {
         include: __dirname,
         exclude: /node_modules/,
         query: {
-          presets: ["es2015", "react-app", "stage-2"],
+          presets: ["react-app", "@babel/preset-env"],
           plugins: ["css-modules-transform"]
         }
       },

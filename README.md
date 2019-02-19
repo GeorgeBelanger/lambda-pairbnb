@@ -245,3 +245,8 @@
               - I get `npm WARN deprecated babel-preset-es2015@6.24.1: 🙌  Thanks for using Babel: we recommend using babel-preset-env now: please read babeljs.io/env to update!` when I run npm install so I am going to remove es2015 and just use `@babel/preset-env` or `env`
             - Npm install
             - I guess I got past the previous issue by deleting "es2015" and "stage-2". But now I have several other issues. Will address them tomorrow. 
+
+## 2/18/19 Monday 2:15pm home
+  - Applying to jobs today
+    - Followed up with job for developer/data engineer here https://www.5hdagency.com/
+    - Sent an email on a full stack react job in Salt Lake City. 

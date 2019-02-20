@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
+import { StaticRouter } from "react-router"
 
 // import main App component
 import App from "../PairBNB/src/App";
@@ -18,7 +19,11 @@ export default (req, res, next) => {
     }
 
     // render the app as a string
-    const html = ReactDOMServer.renderToString(<App />);
+    const context = {}
+    const html = ReactDOMServer.renderToString(
+      <StaticRouter location={req.url} context={context}>
+        <App />
+      </StaticRouter>);
 
     // inject the rendered app into our html and send it
     return res.send(

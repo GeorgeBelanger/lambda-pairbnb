@@ -298,8 +298,22 @@
 
 ## 2/20/19 Wednesday 3:30 glickman  
  - Trying to get my stuff hosted on lambda today
-  - First error do deal with is "ReferenceError: window is not defined",
+  ? Have to find out about git submodules
+  | First error to deal with is "ReferenceError: window is not defined",
     - "variables declared with the var keyword remain local to a module; those declared without it get attached to the global object.
       - Going to try using https://www.npmjs.com/package/window-or-global where you import 'root' from 'window-or-global' and then use 'root' instead of 'global' or 'window' and then you can use it client side or server side without changing anything.  
         - Before I do this I want to see if I can just change a few things to global to see if it works. 
+          @ Changed app.js window.jquery=jquery to global which seems to fix it because all the other files are using jQuery$window . 
+            ? Going to come back and use window or global for this... But it seemed to work when I fired it client side anyway. 
+  |Invariant Violation: Uncaught error: Element type is invalid: expected a string
+    @ This was fixed because I was importing StaticRouter as a default export when I should have imported it like a named export {StaticRouter}
+  |Invariant Violation: Uncaught error: Browser history needs a DOM
+    - I read here that this is because react router uses BrowserRouter in a client side app and Static or ServerRouter on the serverside app https://github.com/ReactTraining/react-router/issues/4042
+    @ I had to move BrowserRouter from app to index so it is only used in client fired apps and now I only have 1 router with each side I fire. 
+  @ I now see html
+    | No CSS
+    | No GraphQL Listings
+    | Can't go to /about
+  
+
 

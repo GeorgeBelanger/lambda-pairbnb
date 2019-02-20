@@ -312,8 +312,17 @@
     @ I had to move BrowserRouter from app to index so it is only used in client fired apps and now I only have 1 router with each side I fire. 
   @ I now see html
     | No CSS
+      - Says mimetype is 'text/html' and not css mimetype
     | No GraphQL Listings
+    | No Js
+      - All my js respond with 404 twice
     | Can't go to /about
   
 
 
+  |@ Sperryfarms doesn't connect without www. now
+  | Pairbnb won't connect at http://ec2-18-191-187-105.us-east-2.compute.amazonaws.com:3001/ but is running 
+    - Tried adding www.
+    - Tried restarting it in pm2
+    - Uploading it to netlify right now
+    

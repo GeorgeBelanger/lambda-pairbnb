@@ -291,7 +291,7 @@
             - Changed C:\my_developments\lambda-pairbnb\PairBNB\src\components\home.js to reflect the post, except didn't link API_URI. 
               | This caused a 404 error saying link is an unaccepted option for apollo. 
               @@ Had to make it the verbose mode of Apolloclient by changing `import ApolloClient from 'apollo-boost'` to `import { ApolloClient } from 'apollo-boost'`
-
-          
-      
-  | Getting pissed because when I rename or delete a file in the side explorer in VS code it changes it but doesn't show the change in the explorer. 
+        | "ReferenceError: window is not defined",
+          - Getting this error and understand that window is the global in the browser and global is the global in node.js, but not sure how to change this to work with SSR.
+            - Found this article and this resulting article: https://github.com/webpack/webpack/issues/7112 https://www.hacksparrow.com/global-variables-in-node-js.html
+  | When I rename or delete a file in the side explorer in VS code it changes it but doesn't show the change in the explorer. 

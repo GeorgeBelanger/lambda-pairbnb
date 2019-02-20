@@ -43174,13 +43174,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var serverless_http__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(serverless_http__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var express__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! express */ "express");
 /* harmony import */ var express__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! node-fetch */ "node-fetch");
-/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(node_fetch__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! path */ "path");
-/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _middleware_renderer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./middleware/renderer */ "./middleware/renderer.js");
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! path */ "path");
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _middleware_renderer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./middleware/renderer */ "./middleware/renderer.js");
 // index.js
-
 
 
  // import middleware
@@ -43188,9 +43185,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var app = express__WEBPACK_IMPORTED_MODULE_1___default()(); // root (/) should always serve our server rendered page
 
-app.use("^/$", _middleware_renderer__WEBPACK_IMPORTED_MODULE_4__["default"]); // serve static assets
+app.use("^/$", _middleware_renderer__WEBPACK_IMPORTED_MODULE_3__["default"]); // serve static assets
 
-app.use(express__WEBPACK_IMPORTED_MODULE_1___default.a.static(path__WEBPACK_IMPORTED_MODULE_3___default.a.join(__dirname, "PairBNB", "./build"))); // handler
+app.use(express__WEBPACK_IMPORTED_MODULE_1___default.a.static(path__WEBPACK_IMPORTED_MODULE_2___default.a.join(__dirname, "PairBNB", "./build"))); // handler
 
 var handler = serverless_http__WEBPACK_IMPORTED_MODULE_0___default()(app);
 /* WEBPACK VAR INJECTION */}.call(this, "/"))
@@ -43208,18 +43205,15 @@ var handler = serverless_http__WEBPACK_IMPORTED_MODULE_0___default()(app);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fs */ "fs");
 /* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! node-fetch */ "node-fetch");
-/* harmony import */ var node_fetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(node_fetch__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! path */ "path");
-/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-dom/server */ "react-dom/server");
-/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _PairBNB_src_App__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../PairBNB/src/App */ "./PairBNB/src/App.js");
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! path */ "path");
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom/server */ "react-dom/server");
+/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _PairBNB_src_App__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../PairBNB/src/App */ "./PairBNB/src/App.js");
 var _jsxFileName = "C:\\my_developments\\lambda-pairbnb\\middleware\\renderer.js";
 // renderer.js
-
 
 
 
@@ -43228,7 +43222,7 @@ var _jsxFileName = "C:\\my_developments\\lambda-pairbnb\\middleware\\renderer.js
 
 /* harmony default export */ __webpack_exports__["default"] = (function (req, res, next) {
   // point build index.html
-  var filePath = path__WEBPACK_IMPORTED_MODULE_2___default.a.resolve("PairBNB", "./build", "index.html"); // read in html file
+  var filePath = path__WEBPACK_IMPORTED_MODULE_1___default.a.resolve("PairBNB", "./build", "index.html"); // read in html file
 
   fs__WEBPACK_IMPORTED_MODULE_0___default.a.readFile(filePath, "utf8", function (err, htmlData) {
     if (err) {
@@ -43236,10 +43230,10 @@ var _jsxFileName = "C:\\my_developments\\lambda-pairbnb\\middleware\\renderer.js
     } // render the app as a string
 
 
-    var html = react_dom_server__WEBPACK_IMPORTED_MODULE_4___default.a.renderToString(react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_PairBNB_src_App__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    var html = react_dom_server__WEBPACK_IMPORTED_MODULE_3___default.a.renderToString(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_PairBNB_src_App__WEBPACK_IMPORTED_MODULE_4__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 21
       },
       __self: this
     })); // inject the rendered app into our html and send it

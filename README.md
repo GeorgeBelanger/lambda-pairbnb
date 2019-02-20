@@ -295,3 +295,11 @@
           - Getting this error and understand that window is the global in the browser and global is the global in node.js, but not sure how to change this to work with SSR.
             - Found this article and this resulting article: https://github.com/webpack/webpack/issues/7112 https://www.hacksparrow.com/global-variables-in-node-js.html
   | When I rename or delete a file in the side explorer in VS code it changes it but doesn't show the change in the explorer. 
+
+## 2/20/19 Wednesday 3:30 glickman  
+ - Trying to get my stuff hosted on lambda today
+  - First error do deal with is "ReferenceError: window is not defined",
+    - "variables declared with the var keyword remain local to a module; those declared without it get attached to the global object.
+      - Going to try using https://www.npmjs.com/package/window-or-global where you import 'root' from 'window-or-global' and then use 'root' instead of 'global' or 'window' and then you can use it client side or server side without changing anything.  
+        - Before I do this I want to see if I can just change a few things to global to see if it works. 
+

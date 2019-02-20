@@ -290,6 +290,8 @@
             - In ./pairbnb ran `npm install node-fetch, apollo-link-http, apollo-cache-inmemory`
             - Changed C:\my_developments\lambda-pairbnb\PairBNB\src\components\home.js to reflect the post, except didn't link API_URI. 
               | This caused a 404 error saying link is an unaccepted option for apollo. 
-              @ Had to make it the verbose mode of Apolloclient by changing `import ApolloClient from 'apollo-boost'` to `import { ApolloClient } from 'apollo-boost'`
+              @@ Had to make it the verbose mode of Apolloclient by changing `import ApolloClient from 'apollo-boost'` to `import { ApolloClient } from 'apollo-boost'`
+
+          
       
   | Getting pissed because when I rename or delete a file in the side explorer in VS code it changes it but doesn't show the change in the explorer. 

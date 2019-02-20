@@ -1,5 +1,6 @@
 // renderer.js
 import fs from "fs";
+import fetch from "node-fetch";
 import path from "path";
 import React from "react";
 import ReactDOMServer from "react-dom/server";

@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "node-fetch": "^2.3.0",
     "serverless-http": "^1.9.0"
   },
   "devDependencies": {
@@ -24,6 +25,10 @@
     "babel-preset-react-app": "^7.0.1",
     "babel-preset-stage-2": "^6.24.1",
     "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^2.1.0",
+    "file-loader": "^3.0.1",
+    "react": "next",
+    "react-dom": "next",
     "serverless-offline": "^4.4.2",
     "serverless-webpack": "^5.2.0",
     "url-loader": "^1.1.2",

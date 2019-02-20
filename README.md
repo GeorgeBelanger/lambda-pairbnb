@@ -250,3 +250,46 @@
   - Applying to jobs today
     - Followed up with job for developer/data engineer here https://www.5hdagency.com/
     - Sent an email on a full stack react job in Salt Lake City. 
+
+## 2/19/19 Tuesday 8:00pm Home
+  - Going to take another shot at this serverless start.
+    - Errors I'm currently getting:
+      - First off NODE_ENV isn't set and it seems I have to run SET NODE_ENV=development everytime I restart the cpu?
+      | SyntaxError: Missing class properties transform.
+        - First thing I find is that order of plugins matters. I don't have any of the plugins from stage-2 or stage-3 in right now. Will try to rearrange because es2015 which was replaced with env was before react. 
+          @ Put  "@babel/preset-env" before "react-app" and I don't see this error anymore. 
+      | Module not found: Error: Can't resolve 'react' or 'react-dom/server' in 'C:\my_developments\lambda-pairbnb\middleware'
+        - This is because react and react-dom are used in our renderer file but I don't have them installed or listed on package.json.
+          @ Added 'react' and 'react-dom' in my package.json and ran npm install
+      | Module not found: Error: Can't resolve './Slider' in 'C:\my_developments\lambda-pairbnb\PairBNB\src\obnoxious-demo-for-react-router-animation-blog-post\src'
+        - Tried renaming index.jsx to Slider.jsx
+        - Tried a few different path options in import
+        - Tried deleting the hooks.jsx file I had in that folder
+          @ Realized this is because I only have a loader for .js files and not .jsx files. Changed the extension to .js and it didn't break
+      | Module parse failed: Unexpected character '@' (1:0) You may need an appropriate loader to handle this file type. @import url(font-awesome.min.css);
+        - Need to implement a css loader. 
+          - Found out that loaders are deprecated and are from webpack 1 and rules are webpack 2. 
+          @ implemented a css rule and installed `css-loader` in my package.json
+      | ERROR in ./PairBNB/src/assets/fonts/fontawesome-webfont.woff?v=4.7.0 1:4
+        - Got about 6 of these from my fonts folder.
+          - Considering just using url links to the fonts instead of messing with a loader for .eot .svg .ttf .woff .woff2 and .otf  
+          @ Ran `npm install file-loader --save-dev`
+          @ Added these extensions to my webpack.config.js file according do this guide https://chriscourses.com/blog/loading-fonts-webpack
+    - Finally got it to run locally without any errors in compile.
+      - Now for the runtime errors:
+        | "Error:",
+          "fetch is not found globally and no fetcher passed, to fix pass a fetch for",
+          "your environment like https://www.npmjs.com/package/node-fetch.",
+          "",
+          "For example:",
+          "import fetch from 'node-fetch';",
+          "import { createHttpLink } from 'apollo-link-http';",
+          "",
+          "const link = createHttpLink({ uri: '/graphql', fetch: fetch });",
+          - This post talks about setting up node-fetch with apollo because it doesn't take links without proper formatting. https://stackoverflow.com/questions/50688998/using-apolloclient-with-node-js-fetch-is-not-found-globally-and-no-fetcher-pas
+            - In ./pairbnb ran `npm install node-fetch, apollo-link-http, apollo-cache-inmemory`
+            - Changed C:\my_developments\lambda-pairbnb\PairBNB\src\components\home.js to reflect the post, except didn't link API_URI. 
+              | This caused a 404 error saying link is an unaccepted option for apollo. 
+              @ Had to make it the verbose mode of Apolloclient by changing `import ApolloClient from 'apollo-boost'` to `import { ApolloClient } from 'apollo-boost'`
+      
+  | Getting pissed because when I rename or delete a file in the side explorer in VS code it changes it but doesn't show the change in the explorer. 

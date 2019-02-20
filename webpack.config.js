@@ -20,17 +20,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         loader: "babel-loader",
         include: __dirname,
         exclude: /node_modules/,
         query: {
-          presets: ["react-app", "@babel/preset-env"],
+          presets: [ "@babel/preset-env", "react-app"],
           plugins: ["css-modules-transform"]
         }
       },
       {
-        test: /\.(png|jp(e*)g|svg)$/,
+        test: /\.(png|jp(e*)g|svg|JPG)$/,
         use: [
           {
             loader: "url-loader",
@@ -40,7 +40,21 @@ module.exports = {
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.css$/,
+        use: ['css-loader']
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]',
+                outputPath: 'fonts/'
+            }
+        }]
+    }
     ]
   },
   plugins: [

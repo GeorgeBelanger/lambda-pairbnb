@@ -1,6 +1,7 @@
 // index.js
 import serverless from "serverless-http";
 import express from "express";
+import fetch from "node-fetch";
 import path from "path";
 
 // import middleware

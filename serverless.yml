@@ -17,5 +17,9 @@ functions:
     handler: index.handler
     events:
       - http: ANY /
+      - http: ANY /about
       - http: 'ANY {proxy+}'
+      - http: GET /static/css/main.b48cd46e.css
+      - http: GET /jquery.min.js
+      - http: GET /about
       - cors: true

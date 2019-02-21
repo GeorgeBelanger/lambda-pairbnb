@@ -310,13 +310,34 @@
   |Invariant Violation: Uncaught error: Browser history needs a DOM
     - I read here that this is because react router uses BrowserRouter in a client side app and Static or ServerRouter on the serverside app https://github.com/ReactTraining/react-router/issues/4042
     @ I had to move BrowserRouter from app to index so it is only used in client fired apps and now I only have 1 router with each side I fire. 
-  @ I now see html
+  @ I now see html so my react code is working
     | No CSS
       - Says mimetype is 'text/html' and not css mimetype
+      - Says canceled in the network tab
     | No GraphQL Listings
-    | No Js
+    | No Js outside of the react js
       - All my js respond with 404 twice
+      - I see that in pairbnb/build and in .webpack/build that they are all there in the root folder. 
+      - In the source tab, there is no JS. Only index.html
+      - In .webpack/index.js there is no mention of scrollex or the other deffered scripts
+      - For the css file I get:
+        - /***/ "./PairBNB/src/assets/css/main.css":
+          /*!*****************************************!*\
+            !*** ./PairBNB/src/assets/css/main.css ***!
+            \*****************************************/
+          /*! no static exports found */
+          /***/ (function(module, exports, __webpack_require__) {
+
+          exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+          // Imports
+          exports.i(__webpack_require__(/*! -!../../../../node_modules/css-loader/dist/cjs.js!./font-awesome.min.css */ "./node_modules/css-loader/dist/cjs.js!./PairBNB/src/assets/css/font-awesome.min.css"), "");
+          exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic);", ""]);
+          var urlEscape = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/url-escape.js */ "./node_modules/css-loader/dist/runtime/url-escape.js");
+          var ___CSS_LOADER_URL___0___ = urlEscape(__webpack_require__(/*! ../../images/DSC03456.JPG */ "./PairBNB/src/images/DSC03456.JPG"));
+
+          // Module which ends up being a superr long ass thing. It's module.exports[module.i] and then everything in the css file. 
     | Can't go to /about
+      - For some reason in the headers I get `content-security-policy: default-src 'self'` which I do not get in /
   
 
 
@@ -325,4 +346,16 @@
     - Tried adding www.
     - Tried restarting it in pm2
     - Uploading it to netlify right now
-    
+    - I think the plan should be to get the lambda app working ASAP 
+    @ Just started working fine again after I accessed it with my phone. Very annoying that I don't know wtf happened. 
+      | Still doesn't work on my computer. 
+
+## 2/21/19 Thursday 4:00pm Glickman 
+  - Going to get back in the lambda sattle again today
+    - Messing around with the deferred js scripts in index.html, but should work on the css first. 
+    - Tried messing around with a few things:
+      - First for the CSS I removed the comments and @ symbols at the top to see if it would change the mimetype
+      - Then I went in to serverless.yml and changed the http handler events around and included /about, but now I am realizing that they all just fire root folder ./index.js which says it uses ... ... ... build. Let me try putting some of these files into the root folder and see what happens maybe I just need to change the routes in index. 
+      - I tried in the index.js folder and it didn't work. 
+      - The mimetype makes me think that it is finding the CSS file but when I go to the CSS file directly it says cannot get and says 404
+      - It has to be that the files aren't wherever local host is. Because I have the routes set up for GET /about and it still 404's

@@ -383,3 +383,12 @@
             - The main.js build only has things from app.js in it
             - index.html in the build folder creates a stylesheet link to the compiled css which works fine here but in the serverless configuation the only thing I have access to is index.js....
         @ The only file I have access to is index.js for some reason. 
+        - Removing this from my webpack config file has no bearing on index.js or the html I see in the browser. So even though it is copying these files, they are not accessible. 
+        ```
+        ,
+        plugins: [
+          new CopyWebpackPlugin([{ from: "PairBNB/build", to: "build" }], {
+            debug: "info"
+          })
+        ]
+        ```

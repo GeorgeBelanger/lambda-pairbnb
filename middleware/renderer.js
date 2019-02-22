@@ -7,6 +7,7 @@ import { StaticRouter } from "react-router"
 
 // import main App component
 import App from "../PairBNB/src/App";
+import "../PairBNB/build/static/css/main.b48cd46e.css"
 export default (req, res, next) => {
 
   // point build index.html

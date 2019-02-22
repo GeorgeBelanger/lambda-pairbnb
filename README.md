@@ -311,9 +311,11 @@
     - I read here that this is because react router uses BrowserRouter in a client side app and Static or ServerRouter on the serverside app https://github.com/ReactTraining/react-router/issues/4042
     @ I had to move BrowserRouter from app to index so it is only used in client fired apps and now I only have 1 router with each side I fire. 
   @ I now see html so my react code is working
-    | No CSS
-      - Says mimetype is 'text/html' and not css mimetype
+    | No CSS Says mimetype is 'text/html' and not css mimetype
       - Says canceled in the network tab
+      - Some said that <base href="/"> had an effect
+      - Tried putting the CSS in the serverless-http routes
+      - Says that .css files give mimetype text/css but .html files give text/html so my css is going into an html file somewhere??? The extension for the route is .css
     | No GraphQL Listings
     | No Js outside of the react js
       - All my js respond with 404 twice
@@ -359,3 +361,16 @@
       - I tried in the index.js folder and it didn't work. 
       - The mimetype makes me think that it is finding the CSS file but when I go to the CSS file directly it says cannot get and says 404
       - It has to be that the files aren't wherever local host is. Because I have the routes set up for GET /about and it still 404's
+
+## 2/22/19 Friday 3:00pm Glickman 
+  - Today have to do timesheets and then will work on serverless 
+    - Going to try moving the JS files around in the pairbnb build because all that's being done is copying the build to the lambda .webpack folder
+      - Deleted the files from the src/assets/js folder because they are in the public folder and used from there
+        - I think that all files that aren't used are shaken from the tree- that's why we don't see the scss files or folder in the build pack
+        - Perhaps I should go back to trying to import the js files without using script tags...
+          - Still would rely on main.js 
+            - Potentially could make an npm package out of it???? 
+          - We know that npm run build includes the index.html file in the public folder because the index.html file in the .webpack folder has the script tags. 
+          - Going to try running serve in paribnb and see what happens
+            - Runs exactly like npm start except that when I delete the @import fontawesome line in main.css the icons still work in production but not in development. 
+          - Tried removing the imports from the main.css file then building with pairbnb to get rid of the comments in the css build file but it didn't do anything we still get the mimetype error. 

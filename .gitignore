@@ -11,3 +11,4 @@
 /graphcool/types.graphql
 
 node_modules/**
+./webpack/**

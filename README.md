@@ -374,3 +374,12 @@
           - Going to try running serve in paribnb and see what happens
             - Runs exactly like npm start except that when I delete the @import fontawesome line in main.css the icons still work in production but not in development. 
           - Tried removing the imports from the main.css file then building with pairbnb to get rid of the comments in the css build file but it didn't do anything we still get the mimetype error. 
+          > http://localhost:3000/src/css/component.css by this way you can't access the file , it will consider this as route and try to give you html
+          - The build for pairbnb must work because serve -s starts from index.html and works from the build folder while sls starts from index.js and works from there. 
+            - Perhaps if I change the pairbnb index.html after the build to change the routes for things to /build/util.js it may work... 
+              - Changing the path from /jquery.min.js to /build/jquery.min.js didn't help
+                - I think that everything is supposed to come from index.js and it doesn't have to call for anything which is weird for images, but there is an image folder.  
+          - This may have been established already but none of my js files are making into index.js
+            - The main.js build only has things from app.js in it
+            - index.html in the build folder creates a stylesheet link to the compiled css which works fine here but in the serverless configuation the only thing I have access to is index.js....
+        @ The only file I have access to is index.js for some reason. 

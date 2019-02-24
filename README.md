@@ -392,3 +392,32 @@
           })
         ]
         ```
+
+
+## 2/24/19 Sunday 8:30am Home 
+  - Snowing today so I don't think I'm going to leave the house
+    - Going to read these articles that are linked to the original guide I used https://medium.com/@YatinBadal/rendering-and-serving-a-create-react-app-from-an-express-server-running-within-a-lambda-function-832576a5167e
+      - First the offical documentation https://serverless.com/blog/serverless-express-rest-api/
+        - Helpped by saying that all you have to do to port over an existing express application is have an index handler that has module.exports.handler = serverless(app)
+          - This means that all my issues are stemming from having the script tags and the stylesheet links in index.html
+          - Going to try deleting the stylesheet in pairbnb index.html because index.js has everything from main.css in it. 
+            - This didn't apply css but it got rid of the request and also in sources I have 1 index file without the stylesheet but with the stylesheet link I have a second empty index file
+          - Reading the CRA docs on deployment 
+            >If you put a file into the public folder, it will not be processed by Webpack. Instead it will be copied into the build folder untouched. To reference assets in the public folder, you need to use a special variable called PUBLIC_URL
+      - Second this article https://medium.com/bucharestjs/upgrading-a-create-react-app-project-to-a-ssr-code-splitting-setup-9da57df2040a
+      - Tried messing with packaging include as seen here but it didn't seem to do anything https://serverless.com/framework/docs/providers/aws/guide/packaging/
+    @@@ Finally figured out what I had to do. 
+      - In `middleware/renderer.js` I had to put 
+        ```
+          // import main App component
+          import App from "../PairBNB/src/App";
+          import "../pairbnb/build/static/css/main.b48cd46e.css"
+          import "../pairbnb/build/jquery.min.js"
+          import "../pairbnb/build/browser.min.js"
+          import "../pairbnb/build/breakpoints.min.js"
+          import "../pairbnb/build/jquery.scrolly.min.js"
+          import "../pairbnb/build/jquery.scrollex.min.js"
+          import "../pairbnb/build/util.js"
+          import "../pairbnb/build/main.js"
+        ```
+      - Now I have these scripts inside index.js

@@ -56,5 +56,10 @@ module.exports = {
         }]
     }
     ]
-  }
+  },
+  plugins: [
+    new CopyWebpackPlugin([{ from: "PairBNB/build", to: "build" }], {
+      debug: "info"
+    })
+  ]
 };

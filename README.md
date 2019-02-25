@@ -421,3 +421,9 @@
           import "../pairbnb/build/main.js"
         ```
       - Now I have these scripts inside index.js
+      - Confirmed that all lines I put inside renderer.js go to index.js
+        - Need to find out how to define NodeJS in renderer.js so I can use the NodeJS.Global in index.js
+      - I don't know that it is neccessary to have main.hash.css imported because main.css is already in index.js
+        - It must just not be called because in the pairbnb build it uses the stylesheet link and therefore how to use the css is probably not defined in index.js
+      - Working on creating a question for stackoverflow:
+      >I have been trying to get my serverless website to accept html <script> tags because this is how my Create-React-App(CRA) works. I am able to import the scripts into index.js but it is unable to compile because it doesn't have the Document properties needed. I have heard of using JSDOM but am unsure if that's the best solution. If I could just have these few <scripts> loaded in my source map I would be all set. The CSS from the CRA build is also loaded via a stylesheet link in index.html and isn't being loaded because only 1 file is getting passed. 

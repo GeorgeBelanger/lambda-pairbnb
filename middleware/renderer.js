@@ -8,14 +8,6 @@ import { StaticRouter } from "react-router"
 // import main App component
 import App from "../PairBNB/src/App";
 import "../pairbnb/build/static/css/main.b48cd46e.css"
-import "../pairbnb/build/jquery.min.js"
-import "../pairbnb/build/browser.min.js"
-import "../pairbnb/build/breakpoints.min.js"
-import "../pairbnb/build/jquery.scrolly.min.js"
-import "../pairbnb/build/jquery.scrollex.min.js"
-import "../pairbnb/build/util.js"
-import "../pairbnb/build/main.js"
-const window = NodeJS.Global
 export default (req, res, next) => {
 
   // point build index.html

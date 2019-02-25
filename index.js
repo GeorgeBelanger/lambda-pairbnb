@@ -11,7 +11,7 @@ const app = express();
 app.use("^/$", renderer);
 
 // serve static assets
-app.use(express.static(path.join(__dirname, ".webpack", "./service", "./build")));
+app.use(express.static(path.join(__dirname)));
 
 // handler
 export const handler = serverless(app);

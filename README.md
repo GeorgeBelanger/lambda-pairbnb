@@ -427,3 +427,25 @@
         - It must just not be called because in the pairbnb build it uses the stylesheet link and therefore how to use the css is probably not defined in index.js
       - Working on creating a question for stackoverflow:
       >I have been trying to get my serverless website to accept html <script> tags because this is how my Create-React-App(CRA) works. I am able to import the scripts into index.js but it is unable to compile because it doesn't have the Document properties needed. I have heard of using JSDOM but am unsure if that's the best solution. If I could just have these few <scripts> loaded in my source map I would be all set. The CSS from the CRA build is also loaded via a stylesheet link in index.html and isn't being loaded because only 1 file is getting passed. 
+
+## 2/25/19 Monday 12:00pm Quill
+  - Applying to jobs today
+    - Applied for web dev at integrated statistics in falmouth MA 
+    - Applied at GraVoc
+    - Applied at guideline
+      - Sent a $30,000 offer as a ruby engineer in Angellist cover letter. 
+  - Tempted to put my projects on netlify but it will have to wait until tomorrow.
+    - Sent an email to David Burkham in Austin
+    - Applied to commonweath financial network
+      - sent an email to gmorrissey@commonwealth.com
+    - Sent an email to node.js developer in hartford CT
+    - Applied to lovepop
+      - Sent an email to max kohl 
+    - Applied to booz allen hamilton
+    - Applied to reactjs positoin at location inc
+      - sent an email to careers@
+    - Applied to nextjump
+      - Sent an email to greg
+    - Applied to aha.io
+      - sent an email to the jobs email
+    - Applied to russell tobin and associates

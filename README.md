@@ -449,3 +449,6 @@
     - Applied to aha.io
       - sent an email to the jobs email
     - Applied to russell tobin and associates
+  - Hosted all my sites on netlify
+    | sperryfarms wasn't working after build
+      @ Had to change home-page.html to index.html - took a guess that netlify uses it's own server file and looks for an index.html in your build folder. Guessed correctly :)
